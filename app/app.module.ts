@@ -21,3 +21,9 @@ import { AppRoutingModule } from './app-routing.module';
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+/**
+    RouterModule.forRoot([
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'login', loadChildren: './login/login.module#LoginModule' },
+      { path: 'recovery', loadChildren: './recovery/recovery.module#RecoveryModule' }
+*/
