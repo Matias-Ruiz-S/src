@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'recovery',
     loadChildren: () => import('./recovery/recovery.module').then( m => m.RecoveryPageModule)
   },
+  {
+    path: 'success',
+    loadChildren: () => import('./success/success.module').then( m => m.SuccessPageModule)
+  },
 
 ];
 
