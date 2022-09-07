@@ -1,17 +1,20 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Ingreso de usuario</ion-title>
+    <ion-title color="tertiary">Ingreso de usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-item lines="none" color="warning">
+  <ion-label>Bienvenido a RegistrAPP</ion-label>
+</ion-item>
+<ion-content color="tertiary">
   <ion-item lines="full">
-    <ion-label position="floating">Nombre de Usuario</ion-label>
-    <ion-input type="text" [(ngModel)]="user.usuario"></ion-input>
+    <ion-label position="floating" color="tertiary">Nombre de Usuario</ion-label>
+    <ion-input type="text" [(ngModel)]="user.usuario" color="tertiary"></ion-input>
   </ion-item>
   <ion-item lines="full">
-    <ion-label position="floating">Contraseña</ion-label>
-    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+    <ion-label position="floating" color="tertiary">Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="user.password" color="tertiary"></ion-input>
   </ion-item>
   <ion-row>
     <ion-col>
