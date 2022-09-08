@@ -1,33 +1,31 @@
-/** Importaciones de librerias a usar */
-
 import { Component } from '@angular/core';
+/*import { AlertController } from '@ionic/angular';*/
 import { ActivatedRoute, Router } from '@angular/router';
 
-// Decorador Componente este indica que el Home Page es un Componente
 @Component({
-  selector: 'app-home', // Nombre del selector como <input> o <main-page>
-  templateUrl: 'home.page.html', // Arhivo HTML de la visual a trabajar
-  styleUrls: ['home.page.scss'], // Archivo/s de estilos
+  selector: 'app-home',
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  data: any; // Generamos una variable Any (permite cualquier valor)
+  data: any;
 
-  /**
-   * En el constructor del HomePage se colocan por parametros
-   * todas aquellas propiedades con el siguiente formato
-   * private = visibilidad
-   * activeRoute = identificador
-   * ActiveRoute = Tipo de Objeto
-   * : Indica que el identificador sera de la clase posterior a los : puntos
-   * 
-   */
   constructor(private activeroute: ActivatedRoute, private router: Router) {
-    // Se llama a la ruta activa y se obtiene sus parametros mediante una subscripcion
-    this.activeroute.queryParams.subscribe(params => { // Utilizamos lambda
-      if (this.router.getCurrentNavigation().extras.state) { // Validamos que en la navegacion actual tenga extras
-        this.data = this.router.getCurrentNavigation().extras.state.user; // Si tiene extra rescata lo enviado
-        console.log(this.data) // Muestra por consola lo traido
-      }else{this.router.navigate(["/login"])} // Si no tiene extra la navegacion actual navegar al login
+    this.activeroute.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.data = this.router.getCurrentNavigation().extras.state.user;
+        console.log(this.data)
+      }else{this.router.navigate(["/login"])}
     });
   }
+
+  /*async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Aviso',
+      message: 'Su asistencia ha sido registrada exitosamente',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }*/
 }

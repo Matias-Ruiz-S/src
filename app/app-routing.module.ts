@@ -14,13 +14,10 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },  {
-    path: 'recovery',
-    loadChildren: () => import('./recovery/recovery.module').then( m => m.RecoveryPageModule)
   },
   {
-    path: 'success',
-    loadChildren: () => import('./success/success.module').then( m => m.SuccessPageModule)
+    path: 'recovery',
+    loadChildren: () => import('./recovery/recovery.module').then( m => m.RecoveryPageModule)
   },
 
 ];
