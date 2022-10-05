@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 /*import { AlertController } from '@ionic/angular';*/
 import { ActivatedRoute, Router } from '@angular/router';
+import { PostServiceService } from '../services/post-service.service';
 
 @Component({
   selector: 'app-home',
@@ -8,15 +9,19 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  data: any;
+  arrayPosts: any;
 
-  constructor(private activeroute: ActivatedRoute, private router: Router) {
+  constructor(private activeroute: ActivatedRoute, private router: Router, public postServices:PostServiceService) {
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.data = this.router.getCurrentNavigation().extras.state.user;
         console.log(this.data)
       }else{this.router.navigate(["/login"])}
     });
+  }
+
+  ionViewWillEnter(){
+    this.getPosts();
   }
 
   /*async presentAlert() {
