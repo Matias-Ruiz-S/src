@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-/*import { AlertController } from '@ionic/angular';*/
+//import { AlertController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostServiceService } from '../services/post-service.service';
 
@@ -11,18 +11,35 @@ import { PostServiceService } from '../services/post-service.service';
 export class HomePage {
   arrayPosts: any;
 
-  constructor(private activeroute: ActivatedRoute, private router: Router, public postServices:PostServiceService) {
+  constructor(private activeroute: ActivatedRoute, private router: Router, public postServices:PostServiceService) {/**
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.data = this.router.getCurrentNavigation().extras.state.user;
         console.log(this.data)
       }else{this.router.navigate(["/login"])}
-    });
+    }); */
   }
 
   ionViewWillEnter(){
     this.getPosts();
   }
+
+  getPosts(){
+    this.postServices.getPosts()
+    .then(data =>{
+      this.arrayPosts = data;
+    });
+  } 
+
+  //Observable
+  /*
+  getPosts(){
+    this.postServices.getPosts().subscribe((data)=>{
+      this.arrayPosts=data;
+      this.arrayPosts.reverse();
+    })
+  }
+  */
 
   /*async presentAlert() {
     const alert = await this.alertController.create({
