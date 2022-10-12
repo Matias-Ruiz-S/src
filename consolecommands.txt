@@ -1,0 +1,9 @@
+npm i --save cordova-sqlite-storage
+
+npm i --save @ionic/storage
+
+OR FORCE
+
+npm i --save --force cordova-sqlite-storage
+
+npm i --save --force @ionic/storage
