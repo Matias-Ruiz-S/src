@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-//import { Observable } from 'rxjs';
-//import { retry, catchError } from 'rxjs/operators'; 
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +22,16 @@ export class PostServiceService {
     });
   }
 
-  //Observable
-  /*
-  getPosts(): Observable<any>{
-    return this.http.get(this.url).pipe(retry(3));
+  httpOptions = {
+    headers: new HttpHeaders
+    ({
+      'Content-Type':'application/json',
+      'Access-Control-Allow-Origin':'*'
+    })
   }
-  */
+
+  createPost(post): Observable<any>{
+    return this.http.post(this.url ,post ,this.httpOptions).pipe(retry(3));
+  }
+
 }

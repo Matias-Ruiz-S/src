@@ -11,6 +11,13 @@ import { PostServiceService } from '../services/post-service.service';
 export class HomePage {
   arrayPosts: any;
 
+  post:any={
+    id:null,
+    title:"",
+    body:"",
+    userId:null
+  };
+
   constructor(private activeroute: ActivatedRoute, private router: Router, public postServices:PostServiceService) {/**
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
@@ -50,4 +57,16 @@ export class HomePage {
 
     await alert.present();
   }*/
+
+  createPost(){
+    this.postServices.createPost(this.post).subscribe(
+      ()=>{
+        console.log("Post creado.");
+        this.getPosts();
+      },
+      error=>{
+        console.log("Error " + error)
+      }
+    );
+  }
 }
