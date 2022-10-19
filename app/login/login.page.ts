@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  templateUrl: 'login.page.html',
+  styleUrls: ['login.page.scss'],
 })
 export class LoginPage implements OnInit {
   user={
     usuario:"",
     password:""
   }
-  constructor(private router: Router) { }
+  constructor(public alertController: AlertController, private router: Router) { }
 
   ngOnInit() {
   }
@@ -21,7 +22,14 @@ export class LoginPage implements OnInit {
         user: this.user
       }
     };
-    this.router.navigate(['/home'],navigationExtras);
+    if (this.user.usuario != "" && this.user.password != ""){
+      //Guardo en localStorage los datos del usuario
+      localStorage.setItem('nombre',this.user.usuario);
+      localStorage.setItem('apellido',this.user.password);
+      this.router.navigate(['/home'],navigationExtras);
+    } else {
+      this.presentAlert("Error", "No se pueden ingresar campos vacíos")
+    }
   }
   recuperar(){
     let navigationExtras: NavigationExtras = {
@@ -30,5 +38,15 @@ export class LoginPage implements OnInit {
       }
     };
     this.router.navigate(['/recovery'],navigationExtras);
+  }
+
+  async presentAlert(titulo: string, message: string) {
+    const alert = await this.alertController.create({
+      header: titulo,
+      message: message,
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 }
