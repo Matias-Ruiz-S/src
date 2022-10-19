@@ -6,7 +6,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { Storage } from '@ionic/storage';
 
-import { Camera } from '@ionic-native/camera/ngx';
+//import { Camera } from '@ionic-native/camera/ngx';
 
 /**import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner'; */
 
@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot()/**, QRScanner */, AppRoutingModule/**, IonicStorageModule.forRoot() */, Storage, HttpClientModule, Camera],
+  imports: [BrowserModule, IonicModule.forRoot()/**, QRScanner */, AppRoutingModule/**, IonicStorageModule.forRoot() */, Storage, HttpClientModule /*, Camera*/],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

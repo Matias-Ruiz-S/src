@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PostServiceService } from '../services/post-service.service';
-import { NavigationExtras } from '@angular/router';
+//POST
+//import { PostServiceService } from '../services/post-service.service';
+//import { NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,7 @@ export class HomePage {
     userId:null
   };
 
-  constructor(public alertController: AlertController, private activeroute: ActivatedRoute, private router: Router, public postServices:PostServiceService) {/**
+  constructor(public alertController: AlertController, private activeroute: ActivatedRoute, private router: Router/**, public postServices:PostServiceService */) {/**
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.data = this.router.getCurrentNavigation().extras.state.user;
@@ -28,16 +29,24 @@ export class HomePage {
     }); */
   }
 
+  //POST
+  
+  /**
   ionViewWillEnter(){
     this.getPosts();
   }
+  */
 
+  //POST
+  
+  /**
   getPosts(){
     this.postServices.getPosts()
     .then(data =>{
       this.arrayPosts = data;
     });
   } 
+   */
 
   //Observable
   /*
@@ -63,6 +72,9 @@ export class HomePage {
     this.presentAlert("Aviso", "La asistencia se registro correctamente")
   }
 
+  //POST
+  
+  /**
   createPost(){
     this.postServices.createPost(this.post).subscribe(
       ()=>{
@@ -74,4 +86,5 @@ export class HomePage {
       }
     );
   }
+   */
 }
