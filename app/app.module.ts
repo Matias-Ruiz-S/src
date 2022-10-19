@@ -17,12 +17,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot()/**, QRScanner */, AppRoutingModule/**, IonicStorageModule.forRoot() */, Storage, HttpClientModule, Camera],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+
+
 /**
     RouterModule.forRoot([
       { path: '', redirectTo: 'home', pathMatch: 'full' },
