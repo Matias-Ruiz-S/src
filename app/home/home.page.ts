@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-//import { AlertController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostServiceService } from '../services/post-service.service';
+import { NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ export class HomePage {
     userId:null
   };
 
-  constructor(private activeroute: ActivatedRoute, private router: Router, public postServices:PostServiceService) {/**
+  constructor(public alertController: AlertController, private activeroute: ActivatedRoute, private router: Router, public postServices:PostServiceService) {/**
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.data = this.router.getCurrentNavigation().extras.state.user;
@@ -48,15 +49,19 @@ export class HomePage {
   }
   */
 
-  /*async presentAlert() {
+  async presentAlert(titulo: string, message: string) {
     const alert = await this.alertController.create({
-      header: 'Aviso',
-      message: 'Su asistencia ha sido registrada exitosamente',
-      buttons: ['OK'],
+      header: titulo,
+      message: message,
+      buttons: ['OK']
     });
 
     await alert.present();
-  }*/
+  }
+
+  registrar(){
+    this.presentAlert("Aviso", "La asistencia se registro correctamente")
+  }
 
   createPost(){
     this.postServices.createPost(this.post).subscribe(
