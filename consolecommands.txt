@@ -4,7 +4,11 @@ npm i --save cordova-sqlite-storage
 
 npm i --save @ionic/storage
 
-npm i --save  cordova-plugin-qrscanner
+npm i --save cordova-plugin-camera
+
+npm i --save @ionic-native/camera
+
+npm i --save cordova-plugin-qrscanner
 
 npm i --save @ionic-native/qr-scanner@4
 
@@ -15,6 +19,10 @@ npm i --save -g json-server
 npm i --save --force cordova-sqlite-storage
 
 npm i --save --force @ionic/storage
+
+npm i --save --force cordova-plugin-camera
+
+npm i --save --force @ionic-native/camera
 
 npm i --save --force cordova-plugin-qrscanner
 
