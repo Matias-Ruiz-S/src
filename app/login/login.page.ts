@@ -24,8 +24,8 @@ export class LoginPage implements OnInit {
     };
     if (this.user.usuario != "" && this.user.password != ""){
       //Guardo en localStorage los datos del usuario
-      localStorage.setItem('nombre',this.user.usuario);
-      localStorage.setItem('apellido',this.user.password);
+      localStorage.setItem('usuario',this.user.usuario);
+      localStorage.setItem('contraseña',this.user.password);
       this.router.navigate(['/home'],navigationExtras);
     } else {
       this.presentAlert("Error", "No se pueden ingresar campos vacíos")
