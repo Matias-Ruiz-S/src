@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
-//POST
+// POST
 //import { PostServiceService } from '../services/post-service.service';
 //import { NavigationExtras } from '@angular/router';
 
