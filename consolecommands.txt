@@ -1,5 +1,7 @@
        ===  NORMAL  ===
 
+npm i -g cordova
+
 npm i --save cordova-sqlite-storage
 
 npm i --save @ionic/storage
@@ -15,6 +17,8 @@ npm i --save @ionic-native/qr-scanner@4
 npm i --save -g json-server
 
        === OR FORCE ===
+
+npm i -g --force cordova
 
 npm i --save --force cordova-sqlite-storage
 
