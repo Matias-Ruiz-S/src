@@ -11,8 +11,14 @@ export class AccesoLoginGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+
+      const logusuario = {{data.usuario}}
       
-      
+      if (logusuario >= 14) {
+  
+         this.router.navigate(['']);
+        return false;
+      }
 
     return true;
   }
