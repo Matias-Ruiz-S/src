@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { Camera, CameraOptions } from '@awesome-cordova-plugins/camera/ngx';
+
 // POST
 //import { PostServiceService } from '../services/post-service.service';
 //import { NavigationExtras } from '@angular/router';
@@ -11,22 +14,51 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  arrayPosts: any;
 
+  
+  cameraOptions: CameraOptions = {
+    quality: 100,
+    allowEdit: false,
+    correctOrientation: true,
+    destinationType: this.camera.DestinationType.FILE_URI,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE
+  }
+
+  /**
+  arrayPosts: any;
+  
   post:any={
     id:null,
     title:"",
     body:"",
     userId:null
   };
+  */
 
-  constructor(public alertController: AlertController, private activeroute: ActivatedRoute, private router: Router/**, public postServices:PostServiceService */) {/**
+  imgURL;
+
+  constructor(public alertController: AlertController, private activeroute: ActivatedRoute, private router: Router, private camera: Camera/**, public postServices:PostServiceService */) {
+    
+    /**
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.data = this.router.getCurrentNavigation().extras.state.user;
         console.log(this.data)
       }else{this.router.navigate(["/login"])}
     }); */
+  }
+
+  
+  abrirCamara() {
+    this.camera.getPicture({
+      sourceType: this.camera.PictureSourceType.CAMERA,
+      destinationType: this.camera.DestinationType.FILE_URI
+    }).then((res) => {
+      this.imgURL = res;
+    }).catch(e => {
+      console.log(e);
+    })
   }
 
   //POST

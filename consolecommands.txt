@@ -16,6 +16,8 @@ npm i --save @ionic-native/qr-scanner@4
 
 npm i --save -g json-server
 
+npm i --save @awesome-cordova-plugins/camera 
+
        === OR FORCE ===
 
 npm i -g --force cordova
@@ -33,3 +35,5 @@ npm i --save --force cordova-plugin-qrscanner
 npm i --save --force @ionic-native/qr-scanner@4
 
 npm i --save --force -g json-server
+
+npm i --save --force @awesome-cordova-plugins/camera

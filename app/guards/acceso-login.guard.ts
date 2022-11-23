@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree, Router, NavigationExtras } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,20 +7,35 @@ import { Observable } from 'rxjs';
 })
 export class AccesoLoginGuard implements CanActivate {
   constructor(private router:Router){}
+  user={
+    usuario:"",
+    password:""
+  }
+
+  
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
-      const logusuario = {{data.usuario}}
-      
-      if (logusuario >= 14) {
-  
-         this.router.navigate(['']);
-        return false;
+    
+    let navigationExtras: NavigationExtras = {
+      state: {
+        user: this.user
       }
+    };
+    
+    if (this.user.usuario = "") {
+  
+      this.router.navigate(['/login']);
+      
+      return false;
+    }
 
     return true;
+
+    
   }
   
+  
 }
+

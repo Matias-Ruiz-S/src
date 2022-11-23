@@ -4,6 +4,8 @@ import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
+import { Camera, CameraOptions } from '@awesome-cordova-plugins/camera/ngx';
+
 /**
 
 import { Storage } from '@ionic/storage';
@@ -25,7 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     rippleEffect: false,
     mode: 'md'
   })/*, Storage, IonicStorageModule.forRoot(), Camera, QRScanner*/],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [Camera, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
