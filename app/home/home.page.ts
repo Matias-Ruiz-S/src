@@ -149,10 +149,10 @@ export class HomePage {
         alert(result.content); //The QR content will come out here
         //Handle the data as your heart desires here
       } else {
-        alert('No se encontro datos');
+        alert('No se encontraron datos en este QR');
       }
     } else {
-      alert('No permitido');
+      alert('Otorge permisos de camara a la aplicacion e intentelo de nuevo');
     }
   }
 
