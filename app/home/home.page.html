@@ -4,19 +4,36 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-content
+  [fullscreen]="true"
+  [style.--background]="scanActive?'#00000000':'#ffffff'"
+>
+  <ion-button expand="full" (click)="startScanner()" [hidden]="scanActive">
+    SCAN
+  </ion-button>
+  <ion-row class="scan-button" [hidden]="!scanActive">
+    <ion-col class="ion-no-padding">
+      <ion-button expand="full" (click)="stopScanner()">Stop</ion-button>
+    </ion-col>
+  </ion-row>
+  <div class="scan-box" [hidden]="!scanActive"></div>
+</ion-content>
+
+<!--
 <ion-content color="tertiary">
     <ion-item lines="none" color="tertiary">
-      <ion-label>Bienvenido <!--{{data.usuario}}-->usuario</ion-label>
+      <ion-label>Bienvenido {{data.usuario}} usuario</ion-label>
     </ion-item>
     <ion-item lines="none" color="tertiary">
-      <ion-label>Puede abrir la camara con el boton<br>en la parte inferior</ion-label>
+      <ion-label>Puede abrir la camara<br>con el boton en la<br>parte inferior</ion-label>
     </ion-item>
 </ion-content>
 
 <ion-footer>
   
   <ion-button expand="block" (click)="abrirCamara()">ABRIR CAMARA</ion-button>
-  <!--
+  
   <ion-button expand="block" (click)="registrar()">REGISTRAR ASISTENCIA</ion-button>
-  -->
+  
 </ion-footer>
+-->
